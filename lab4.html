@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <title>INST377 - Lab 4</title>
+    <style>
+    body
+    {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .section
+    {
+        text-align: end;
+        margin: 25px;
+        padding: 25px;
+        border: 25px solid chartreuse;
+    }
+            
+    </style>
+</head>
+<body>
+    <h1 id = "First heading">INST377 - Lab 4</h1>
+    <div class = "section" id="alert-me">
+        <h2>Alert Me!</h2>
+        <form onsubmit = "alertName(event)">
+            <input type = "text",id="input-name" required placeholder="Name:">
+            <button type="submit">Alert Me!</button>
+        </form>
+    </div>
+    <div class = "section" id="color-section">
+        <h2>Change Color</h2>
+        <button onclick="changeColor()">Change Color</button>
+    </div>
+    <div class = "section" id="evaluate-text">
+        <h2>Text Tester</h2>
+        <form onsubmit="validateText(event)">
+            <input type="text" id="input-text" required placeholder="Text tester:">
+            <button type="submit">Validate text</button>
+
+        </form>
+    </div>
+    <div class ="section" id="insert-text-t">
+        <h2>Add text</h2>
+        <button onclick="addText()">Add Text</button>
+    </div>
+    <script>
+        let currentColor="yellow";
+        function alertName(event)
+        {
+            event.preventDefault();
+            const name = document.getElementById("input-name").value;
+            alert("I ${name}");  
+        }
+        function changeColor() 
+        {
+            currentColor=currentColor=="blue"?"green":"blue";
+            document.body.style.backgroundColor=currentColor;
+        }
+        function validateText(event)
+        {
+            event.preventDefault();
+            var text = doucment.getElementById("input-text").value;
+            var validation= /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text))
+            {
+                alert("Found special character")
+
+            }    
+            else
+            {
+                alert("No special character detected")
+            }    
+
+
+
+        }
+        function addText()
+        {
+            const heading = document.getElementById("First heading");
+            heading.innerHTML+="Add Text";
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>
